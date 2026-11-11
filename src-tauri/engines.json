@@ -13,7 +13,21 @@
       "approxDownloadMb": 0,
       "approxInstalledMb": 0,
       "description": "Canvas-powered raster conversions plus JSON / CSV / TSV / YAML / TXT and Markdown / HTML text tools. Ships inside the app.",
-      "unlocks": ["PNG", "JPG", "WEBP", "BMP", "ICO", "SVG", "JSON", "CSV", "TSV", "YAML", "TXT", "MD", "HTML"],
+      "unlocks": [
+        "PNG",
+        "JPG",
+        "WEBP",
+        "BMP",
+        "ICO",
+        "SVG",
+        "JSON",
+        "CSV",
+        "TSV",
+        "YAML",
+        "TXT",
+        "MD",
+        "HTML"
+      ],
       "bins": []
     },
     {
@@ -26,31 +40,58 @@
       "approxDownloadMb": 75,
       "approxInstalledMb": 140,
       "description": "Industry-standard audio/video transcoder. Converts between containers and codecs, extracts audio and makes GIFs.",
-      "unlocks": ["MP4", "MKV", "MOV", "WEBM", "MP3", "WAV", "FLAC", "OGG", "GIF"],
-      "bins": ["ffmpeg"],
+      "unlocks": [
+        "MP4",
+        "MKV",
+        "MOV",
+        "WEBM",
+        "MP3",
+        "WAV",
+        "FLAC",
+        "OGG",
+        "GIF"
+      ],
+      "bins": [
+        "ffmpeg"
+      ],
       "platforms": {
         "windows-x86_64": [
           {
             "url": "https://github.com/GyanD/codexffmpeg/releases/download/7.1/ffmpeg-7.1-essentials_build.zip",
-            "sha256": "",
+            "sha256": "fa7d4d7e795db0e2503f49f105f46ed5852386f0cfdd819899be3b65ebde24fc",
             "archive": "zip",
-            "extract": [{ "from": "bin/ffmpeg.exe", "to": "ffmpeg.exe" }]
+            "extract": [
+              {
+                "from": "bin/ffmpeg.exe",
+                "to": "ffmpeg.exe"
+              }
+            ]
           }
         ],
         "macos-x86_64": [
           {
             "url": "https://evermeet.cx/ffmpeg/ffmpeg-7.1.zip",
-            "sha256": "",
+            "sha256": "5a1303c7babaffff3c32c141ff49c7f44bd3b3b3e7dcea992fd7d04b6558ef43",
             "archive": "zip",
-            "extract": [{ "from": "ffmpeg", "to": "ffmpeg" }]
+            "extract": [
+              {
+                "from": "ffmpeg",
+                "to": "ffmpeg"
+              }
+            ]
           }
         ],
         "macos-aarch64": [
           {
             "url": "https://evermeet.cx/ffmpeg/ffmpeg-7.1.zip",
-            "sha256": "",
+            "sha256": "5a1303c7babaffff3c32c141ff49c7f44bd3b3b3e7dcea992fd7d04b6558ef43",
             "archive": "zip",
-            "extract": [{ "from": "ffmpeg", "to": "ffmpeg" }],
+            "extract": [
+              {
+                "from": "ffmpeg",
+                "to": "ffmpeg"
+              }
+            ],
             "notes": "x86_64 build, runs under Rosetta 2."
           }
         ],
@@ -59,7 +100,12 @@
             "url": "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n7.1-latest-linux64-gpl-7.1.tar.xz",
             "sha256": "",
             "archive": "tar.xz",
-            "extract": [{ "from": "bin/ffmpeg", "to": "ffmpeg" }]
+            "extract": [
+              {
+                "from": "bin/ffmpeg",
+                "to": "ffmpeg"
+              }
+            ]
           }
         ]
       }
@@ -74,63 +120,113 @@
       "approxDownloadMb": 45,
       "approxInstalledMb": 210,
       "description": "Pandoc converts between document formats; Typst renders beautiful PDFs without a LaTeX install.",
-      "unlocks": ["DOCX", "PDF", "EPUB", "MD", "HTML", "LaTeX"],
-      "bins": ["pandoc", "typst"],
+      "unlocks": [
+        "DOCX",
+        "PDF",
+        "EPUB",
+        "MD",
+        "HTML",
+        "LaTeX"
+      ],
+      "bins": [
+        "pandoc",
+        "typst"
+      ],
       "platforms": {
         "windows-x86_64": [
           {
             "url": "https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-windows-x86_64.zip",
-            "sha256": "",
+            "sha256": "887e980e2228d8d45a431936e8bc6270a50cc9a5a4ec7e62064a3a5de6423b71",
             "archive": "zip",
-            "extract": [{ "from": "pandoc.exe", "to": "pandoc.exe" }]
+            "extract": [
+              {
+                "from": "pandoc.exe",
+                "to": "pandoc.exe"
+              }
+            ]
           },
           {
             "url": "https://github.com/typst/typst/releases/download/v0.12.0/typst-x86_64-pc-windows-msvc.zip",
-            "sha256": "",
+            "sha256": "07dceb7666b8418d5f7a0b7ebacdf0ca4a4372c0588926374e60976d55b415ff",
             "archive": "zip",
-            "extract": [{ "from": "typst.exe", "to": "typst.exe" }]
+            "extract": [
+              {
+                "from": "typst.exe",
+                "to": "typst.exe"
+              }
+            ]
           }
         ],
         "macos-x86_64": [
           {
             "url": "https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-x86_64-macOS.zip",
-            "sha256": "",
+            "sha256": "04144dd3cca1b1b843b4024af2f617c918ec2ff5bff5234e3b0195858ef71549",
             "archive": "zip",
-            "extract": [{ "from": "bin/pandoc", "to": "pandoc" }]
+            "extract": [
+              {
+                "from": "bin/pandoc",
+                "to": "pandoc"
+              }
+            ]
           },
           {
             "url": "https://github.com/typst/typst/releases/download/v0.12.0/typst-x86_64-apple-darwin.tar.xz",
-            "sha256": "",
+            "sha256": "cba1b1e43b992603da9cc7777ac1c8af2c413f381453169a22c57d9a9aa02efb",
             "archive": "tar.xz",
-            "extract": [{ "from": "typst", "to": "typst" }]
+            "extract": [
+              {
+                "from": "typst",
+                "to": "typst"
+              }
+            ]
           }
         ],
         "macos-aarch64": [
           {
             "url": "https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-arm64-macOS.zip",
-            "sha256": "",
+            "sha256": "08d571a155d49b6d7308394ac90c609e35982f19e0f65844d42d38f9927100a7",
             "archive": "zip",
-            "extract": [{ "from": "bin/pandoc", "to": "pandoc" }]
+            "extract": [
+              {
+                "from": "bin/pandoc",
+                "to": "pandoc"
+              }
+            ]
           },
           {
             "url": "https://github.com/typst/typst/releases/download/v0.12.0/typst-aarch64-apple-darwin.tar.xz",
-            "sha256": "",
+            "sha256": "0e7e7b370b240dab104654bad1ceffdbbcb17b1c98ee8b7778360ddad479fb5d",
             "archive": "tar.xz",
-            "extract": [{ "from": "typst", "to": "typst" }]
+            "extract": [
+              {
+                "from": "typst",
+                "to": "typst"
+              }
+            ]
           }
         ],
         "linux-x86_64": [
           {
             "url": "https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-linux-amd64.tar.gz",
-            "sha256": "",
+            "sha256": "a46b448ad9e7e5bd898a0606a2a67acbf4bc7714b24dc68931e9a47d7b807015",
             "archive": "tar.gz",
-            "extract": [{ "from": "bin/pandoc", "to": "pandoc" }]
+            "extract": [
+              {
+                "from": "bin/pandoc",
+                "to": "pandoc"
+              }
+            ]
           },
           {
             "url": "https://github.com/typst/typst/releases/download/v0.12.0/typst-x86_64-unknown-linux-musl.tar.xz",
-            "sha256": "",
+            "sha256": "605130a770ebd59a4a579673079cb913a13e75985231657a71d6239a57539ec3",
             "archive": "tar.xz",
-            "extract": [{ "from": "typst", "to": "typst" }]
+            "extract": [
+              {
+                "from": "typst",
+                "to": "typst"
+              }
+            ]
           }
         ]
       }
@@ -145,8 +241,16 @@
       "approxDownloadMb": 35,
       "approxInstalledMb": 90,
       "description": "Advanced raster pipeline for TIFF, RAW, EPS, animated GIF output and multi-resolution ICO files.",
-      "unlocks": ["TIFF", "RAW", "EPS", "GIF", "ICO+"],
-      "bins": ["magick"],
+      "unlocks": [
+        "TIFF",
+        "RAW",
+        "EPS",
+        "GIF",
+        "ICO+"
+      ],
+      "bins": [
+        "magick"
+      ],
       "platforms": {
         "windows-x86_64": [
           {
@@ -162,7 +266,12 @@
             "url": "https://imagemagick.org/archive/binaries/magick",
             "sha256": "",
             "archive": "raw",
-            "extract": [{ "from": "magick", "to": "magick" }],
+            "extract": [
+              {
+                "from": "magick",
+                "to": "magick"
+              }
+            ],
             "notes": "Official AppImage, launched with APPIMAGE_EXTRACT_AND_RUN=1 (no FUSE needed)."
           }
         ]
