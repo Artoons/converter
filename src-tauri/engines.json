@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "coreInstallerMb": 15,
+  "engines": [
+    {
+      "id": "core",
+      "name": "Core Image & Data Engine",
+      "shortName": "Images & Data",
+      "category": "images",
+      "builtin": true,
+      "version": "1.0.0",
+      "license": "MIT",
+      "approxDownloadMb": 0,
+      "approxInstalledMb": 0,
+      "description": "Canvas-powered raster conversions plus JSON / CSV / TSV / YAML / TXT and Markdown / HTML text tools. Ships inside the app.",
+      "unlocks": ["PNG", "JPG", "WEBP", "BMP", "ICO", "SVG", "JSON", "CSV", "TSV", "YAML", "TXT", "MD", "HTML"],
+      "bins": []
+    },
+    {
+      "id": "ffmpeg",
+      "name": "FFmpeg Media Engine",
+      "shortName": "Video & Audio",
+      "category": "media",
+      "version": "7.1",
+      "license": "GPL-3.0-or-later",
+      "approxDownloadMb": 75,
+      "approxInstalledMb": 140,
+      "description": "Industry-standard audio/video transcoder. Converts between containers and codecs, extracts audio and makes GIFs.",
+      "unlocks": ["MP4", "MKV", "MOV", "WEBM", "MP3", "WAV", "FLAC", "OGG", "GIF"],
+      "bins": ["ffmpeg"],
+      "platforms": {
+        "windows-x86_64": [
+          {
+            "url": "https://github.com/GyanD/codexffmpeg/releases/download/7.1/ffmpeg-7.1-essentials_build.zip",
+            "sha256": "",
+            "archive": "zip",
+            "extract": [{ "from": "bin/ffmpeg.exe", "to": "ffmpeg.exe" }]
+          }
+        ],
+        "macos-x86_64": [
+          {
+            "url": "https://evermeet.cx/ffmpeg/ffmpeg-7.1.zip",
+            "sha256": "",
+            "archive": "zip",
+            "extract": [{ "from": "ffmpeg", "to": "ffmpeg" }]
+          }
+        ],
+        "macos-aarch64": [
+          {
+            "url": "https://evermeet.cx/ffmpeg/ffmpeg-7.1.zip",
+            "sha256": "",
+            "archive": "zip",
+            "extract": [{ "from": "ffmpeg", "to": "ffmpeg" }],
+            "notes": "x86_64 build, runs under Rosetta 2."
+          }
+        ],
+        "linux-x86_64": [
+          {
+            "url": "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n7.1-latest-linux64-gpl-7.1.tar.xz",
+            "sha256": "",
+            "archive": "tar.xz",
+            "extract": [{ "from": "bin/ffmpeg", "to": "ffmpeg" }]
+          }
+        ]
+      }
+    },
+    {
+      "id": "pandoc",
+      "name": "Pandoc & Typst Document Engine",
+      "shortName": "Documents",
+      "category": "documents",
+      "version": "pandoc 3.5 + typst 0.12",
+      "license": "GPL-2.0-or-later / Apache-2.0",
+      "approxDownloadMb": 45,
+      "approxInstalledMb": 210,
+      "description": "Pandoc converts between document formats; Typst renders beautiful PDFs without a LaTeX install.",
+      "unlocks": ["DOCX", "PDF", "EPUB", "MD", "HTML", "LaTeX"],
+      "bins": ["pandoc", "typst"],
+      "platforms": {
+        "windows-x86_64": [
+          {
+            "url": "https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-windows-x86_64.zip",
+            "sha256": "",
+            "archive": "zip",
+            "extract": [{ "from": "pandoc.exe", "to": "pandoc.exe" }]
+          },
+          {
+            "url": "https://github.com/typst/typst/releases/download/v0.12.0/typst-x86_64-pc-windows-msvc.zip",
+            "sha256": "",
+            "archive": "zip",
+            "extract": [{ "from": "typst.exe", "to": "typst.exe" }]
+          }
+        ],
+        "macos-x86_64": [
+          {
+            "url": "https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-x86_64-macOS.zip",
+            "sha256": "",
+            "archive": "zip",
+            "extract": [{ "from": "bin/pandoc", "to": "pandoc" }]
+          },
+          {
+            "url": "https://github.com/typst/typst/releases/download/v0.12.0/typst-x86_64-apple-darwin.tar.xz",
+            "sha256": "",
+            "archive": "tar.xz",
+            "extract": [{ "from": "typst", "to": "typst" }]
+          }
+        ],
+        "macos-aarch64": [
+          {
+            "url": "https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-arm64-macOS.zip",
+            "sha256": "",
+            "archive": "zip",
+            "extract": [{ "from": "bin/pandoc", "to": "pandoc" }]
+          },
+          {
+            "url": "https://github.com/typst/typst/releases/download/v0.12.0/typst-aarch64-apple-darwin.tar.xz",
+            "sha256": "",
+            "archive": "tar.xz",
+            "extract": [{ "from": "typst", "to": "typst" }]
+          }
+        ],
+        "linux-x86_64": [
+          {
+            "url": "https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-linux-amd64.tar.gz",
+            "sha256": "",
+            "archive": "tar.gz",
+            "extract": [{ "from": "bin/pandoc", "to": "pandoc" }]
+          },
+          {
+            "url": "https://github.com/typst/typst/releases/download/v0.12.0/typst-x86_64-unknown-linux-musl.tar.xz",
+            "sha256": "",
+            "archive": "tar.xz",
+            "extract": [{ "from": "typst", "to": "typst" }]
+          }
+        ]
+      }
+    },
+    {
+      "id": "imagemagick",
+      "name": "ImageMagick Advanced Raster Engine",
+      "shortName": "Pro Raster",
+      "category": "images",
+      "version": "7.1.1",
+      "license": "ImageMagick License",
+      "approxDownloadMb": 35,
+      "approxInstalledMb": 90,
+      "description": "Advanced raster pipeline for TIFF, RAW, EPS, animated GIF output and multi-resolution ICO files.",
+      "unlocks": ["TIFF", "RAW", "EPS", "GIF", "ICO+"],
+      "bins": ["magick"],
+      "platforms": {
+        "windows-x86_64": [
+          {
+            "url": "https://imagemagick.org/archive/binaries/ImageMagick-7.1.1-41-portable-Q16-x64.zip",
+            "sha256": "",
+            "archive": "zip",
+            "extractAll": true,
+            "notes": "imagemagick.org rotates old builds; mirror this archive in your own release for long-term stability."
+          }
+        ],
+        "linux-x86_64": [
+          {
+            "url": "https://imagemagick.org/archive/binaries/magick",
+            "sha256": "",
+            "archive": "raw",
+            "extract": [{ "from": "magick", "to": "magick" }],
+            "notes": "Official AppImage, launched with APPIMAGE_EXTRACT_AND_RUN=1 (no FUSE needed)."
+          }
+        ]
+      }
+    }
+  ]
+}
