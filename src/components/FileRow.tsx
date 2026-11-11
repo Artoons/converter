@@ -1,4 +1,5 @@
 import {
+  Archive,
   ArrowRight,
   Check,
   Database,
@@ -39,6 +40,7 @@ function FormatIcon({ format }: { format: FormatId | null }) {
   const cat = FORMATS[format].category;
   if (cat === 'image') return <ImageIcon size={20} className={cls} />;
   if (cat === 'data') return <Database size={20} className={cls} />;
+  if (cat === 'archive') return <Archive size={20} className={cls} />;
   if (cat === 'media') return AUDIO_ONLY.includes(format) ? <FileAudio size={20} className={cls} /> : <FileVideo size={20} className={cls} />;
   return <FileText size={20} className={cls} />;
 }
@@ -98,7 +100,7 @@ function StatusArea({ item, route, modules, onGetDesktop, onOpenModules }: {
   if (route.kind === 'web-native') {
     return (
       <div className="flex flex-wrap items-center gap-2">
-        <span className="chip">Desktop Engine Required</span>
+        <span className="chip">Desktop App Exclusive Format</span>
         <button className="btn btn-sm btn-primary" onClick={onGetDesktop}>
           GET APP
         </button>
@@ -135,7 +137,10 @@ function StatusArea({ item, route, modules, onGetDesktop, onOpenModules }: {
 }
 
 export function FileRow({ item, desktop, modules, onTarget, onConvert, onRemove, onGetDesktop, onOpenModules }: Props) {
-  const targets = item.format ? targetsFor(item.format) : [];
+  const allTargets = item.format ? targetsFor(item.format) : [];
+  const webTargets = item.format ? allTargets.filter((t) => isWebCapable(item.format!, t)) : [];
+  const appOnlyTargets = item.format ? allTargets.filter((t) => !isWebCapable(item.format!, t)) : [];
+
   const route = item.format && item.target ? resolveRoute(item.format, item.target, { desktop, installed: modules.installed, size: item.size }) : null;
   const canConvert = route?.kind === 'ok' && (item.status === 'idle' || item.status === 'error');
 
@@ -160,22 +165,44 @@ export function FileRow({ item, desktop, modules, onTarget, onConvert, onRemove,
       </div>
 
       <div className="flex shrink-0 items-center gap-2 self-end sm:self-center">
-        {targets.length > 0 && (
+        {allTargets.length > 0 && (
           <>
             <ArrowRight size={15} className="text-sketch" />
             <select
               aria-label={`Target format for ${item.name}`}
-              className="input w-[112px] text-xs uppercase"
+              className="input w-[136px] text-xs uppercase"
               value={item.target ?? ''}
               disabled={item.status === 'converting'}
               onChange={(e) => onTarget(e.target.value as FormatId)}
             >
-              {targets.map((t) => (
-                <option key={t} value={t}>
-                  {FORMATS[t].label}
-                  {!desktop && item.format && !isWebCapable(item.format, t) ? ' · App' : ''}
-                </option>
-              ))}
+              {desktop ? (
+                allTargets.map((t) => (
+                  <option key={t} value={t}>
+                    {FORMATS[t].label}
+                  </option>
+                ))
+              ) : (
+                <>
+                  {webTargets.length > 0 && (
+                    <optgroup label="Web & App Supported">
+                      {webTargets.map((t) => (
+                        <option key={t} value={t}>
+                          {FORMATS[t].label}
+                        </option>
+                      ))}
+                    </optgroup>
+                  )}
+                  {appOnlyTargets.length > 0 && (
+                    <optgroup label="Desktop App Only">
+                      {appOnlyTargets.map((t) => (
+                        <option key={t} value={t}>
+                          {FORMATS[t].label} (App Only)
+                        </option>
+                      ))}
+                    </optgroup>
+                  )}
+                </>
+              )}
             </select>
           </>
         )}

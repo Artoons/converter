@@ -2,9 +2,10 @@ import { FORMATS, type FormatId } from '../formats';
 import type { BrowserEngine } from '../routes';
 import { convertImage } from './image';
 import { convertDataText } from './data';
-import { convertDocText } from './docs';
+import { convertDocBlob } from './docs';
 import { audioToWav } from './audio';
 import { convertBrowserMedia } from './media';
+import { convertArchive } from './archive';
 
 export interface BrowserConvertOptions {
   quality: number; // 0..1
@@ -26,10 +27,12 @@ export async function browserConvert(
     case 'browser-data':
       return new Blob([convertDataText(await input.text(), from, to)], { type: `${mime};charset=utf-8` });
     case 'browser-doc':
-      return new Blob([convertDocText(await input.text(), from, to, opts.title)], { type: `${mime};charset=utf-8` });
+      return convertDocBlob(input, from, to, opts.title);
     case 'browser-audio':
       return audioToWav(input);
     case 'browser-media':
       return convertBrowserMedia(input, from, to);
+    case 'browser-archive':
+      return convertArchive(input, from, to, opts.title);
   }
 }

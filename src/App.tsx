@@ -163,6 +163,7 @@ export default function App() {
           label: 'Modules',
           items: [
             { label: 'Manage Engines', icon: <Puzzle size={14} />, onSelect: () => setModal('modules') },
+            { label: 'Pack Setup Wizard…', icon: <Package size={14} />, onSelect: () => setModal('setup') },
             { type: 'separator' },
             ...ENGINES.map((e) => ({
               label: e.shortName,
@@ -213,6 +214,15 @@ export default function App() {
         menus={menus}
         right={
           <>
+            {desktop && (
+              <button
+                className="btn btn-sm"
+                onClick={() => setModal('modules')}
+                title="Install or remove conversion engines"
+              >
+                <Puzzle size={14} /> Engines ({modules.installed.size}/{ENGINES.length})
+              </button>
+            )}
             <button
               className="btn btn-sm !px-2.5"
               onClick={toggleTheme}
@@ -269,6 +279,7 @@ export default function App() {
               onFilterChange={setFilter}
               onFiles={(f) => void addFilteredFiles(f)}
               onBrowse={() => void openFiles()}
+              onGetDesktop={() => setModal('download')}
             />
 
             {hasItems && (

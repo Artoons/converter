@@ -4,94 +4,60 @@
   "engines": [
     {
       "id": "core",
-      "name": "Core Image & Data Engine",
-      "shortName": "Images & Data",
+      "name": "Core Browser & Desktop Engine",
+      "shortName": "Core Engine",
       "category": "images",
       "builtin": true,
       "version": "1.0.0",
       "license": "MIT",
       "approxDownloadMb": 0,
       "approxInstalledMb": 0,
-      "description": "Canvas-powered raster conversions plus JSON / CSV / TSV / YAML / TXT and Markdown / HTML text tools. Ships inside the app.",
+      "description": "Built-in converter for Images, Data/Configs, Markdown/RTF/PDF Documents, Archives (ZIP/TAR/GZ), and Web Media.",
       "unlocks": [
-        "PNG",
-        "JPG",
-        "WEBP",
-        "BMP",
-        "ICO",
-        "SVG",
-        "JSON",
-        "CSV",
-        "TSV",
-        "YAML",
-        "TXT",
-        "MD",
-        "HTML"
+        "PNG", "JPG", "WEBP", "AVIF", "BMP", "ICO", "GIF", "SVG", "TGA", "PPM",
+        "JSON", "CSV", "TSV", "YAML", "XML", "TOML", "INI", "ENV", "SQL",
+        "MD", "HTML", "TXT", "RTF", "PDF", "ZIP", "TAR", "TAR.GZ", "GZ"
       ],
       "bins": []
     },
     {
       "id": "ffmpeg",
-      "name": "FFmpeg Media Engine",
+      "name": "FFmpeg Pro Media Engine",
       "shortName": "Video & Audio",
       "category": "media",
       "version": "7.1",
       "license": "GPL-3.0-or-later",
       "approxDownloadMb": 75,
       "approxInstalledMb": 140,
-      "description": "Industry-standard audio/video transcoder. Converts between containers and codecs, extracts audio and makes GIFs.",
+      "description": "Hardware-accelerated native audio/video transcoder with unlimited file size and full codec support.",
       "unlocks": [
-        "MP4",
-        "MKV",
-        "MOV",
-        "WEBM",
-        "MP3",
-        "WAV",
-        "FLAC",
-        "OGG",
-        "GIF"
+        "MP4", "MKV", "MOV", "WEBM", "AVI", "FLV", "WMV", "MPG", "3GP",
+        "MP3", "WAV", "FLAC", "OGG", "AAC", "M4A", "OPUS", "WMA", "AIFF", "AC3", "GIF"
       ],
-      "bins": [
-        "ffmpeg"
-      ],
+      "bins": ["ffmpeg"],
       "platforms": {
         "windows-x86_64": [
           {
             "url": "https://github.com/GyanD/codexffmpeg/releases/download/7.1/ffmpeg-7.1-essentials_build.zip",
-            "sha256": "fa7d4d7e795db0e2503f49f105f46ed5852386f0cfdd819899be3b65ebde24fc",
+            "sha256": "",
             "archive": "zip",
-            "extract": [
-              {
-                "from": "bin/ffmpeg.exe",
-                "to": "ffmpeg.exe"
-              }
-            ]
+            "extract": [{ "from": "bin/ffmpeg.exe", "to": "ffmpeg.exe" }]
           }
         ],
         "macos-x86_64": [
           {
             "url": "https://evermeet.cx/ffmpeg/ffmpeg-7.1.zip",
-            "sha256": "5a1303c7babaffff3c32c141ff49c7f44bd3b3b3e7dcea992fd7d04b6558ef43",
+            "sha256": "",
             "archive": "zip",
-            "extract": [
-              {
-                "from": "ffmpeg",
-                "to": "ffmpeg"
-              }
-            ]
+            "extract": [{ "from": "ffmpeg", "to": "ffmpeg" }]
           }
         ],
         "macos-aarch64": [
           {
             "url": "https://evermeet.cx/ffmpeg/ffmpeg-7.1.zip",
-            "sha256": "5a1303c7babaffff3c32c141ff49c7f44bd3b3b3e7dcea992fd7d04b6558ef43",
+            "sha256": "",
             "archive": "zip",
-            "extract": [
-              {
-                "from": "ffmpeg",
-                "to": "ffmpeg"
-              }
-            ],
+            "extract": [{ "from": "ffmpeg", "to": "ffmpeg" }],
             "notes": "x86_64 build, runs under Rosetta 2."
           }
         ],
@@ -100,165 +66,101 @@
             "url": "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n7.1-latest-linux64-gpl-7.1.tar.xz",
             "sha256": "",
             "archive": "tar.xz",
-            "extract": [
-              {
-                "from": "bin/ffmpeg",
-                "to": "ffmpeg"
-              }
-            ]
+            "extract": [{ "from": "bin/ffmpeg", "to": "ffmpeg" }]
           }
         ]
       }
     },
     {
       "id": "pandoc",
-      "name": "Pandoc & Typst Document Engine",
-      "shortName": "Documents",
+      "name": "Pandoc & Typst Pro Document Engine",
+      "shortName": "Documents & Ebooks",
       "category": "documents",
       "version": "pandoc 3.5 + typst 0.12",
       "license": "GPL-2.0-or-later / Apache-2.0",
       "approxDownloadMb": 45,
       "approxInstalledMb": 210,
-      "description": "Pandoc converts between document formats; Typst renders beautiful PDFs without a LaTeX install.",
-      "unlocks": [
-        "DOCX",
-        "PDF",
-        "EPUB",
-        "MD",
-        "HTML",
-        "LaTeX"
-      ],
-      "bins": [
-        "pandoc",
-        "typst"
-      ],
+      "description": "Full publishing pipeline for Office documents, ebooks, academic markup, and typeset PDFs.",
+      "unlocks": ["DOCX", "PDF", "EPUB", "ODT", "RTF", "LATEX", "RST", "ORG", "ADOC", "FB2", "MD", "HTML"],
+      "bins": ["pandoc", "typst"],
       "platforms": {
         "windows-x86_64": [
           {
             "url": "https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-windows-x86_64.zip",
-            "sha256": "887e980e2228d8d45a431936e8bc6270a50cc9a5a4ec7e62064a3a5de6423b71",
+            "sha256": "",
             "archive": "zip",
-            "extract": [
-              {
-                "from": "pandoc.exe",
-                "to": "pandoc.exe"
-              }
-            ]
+            "extract": [{ "from": "pandoc.exe", "to": "pandoc.exe" }]
           },
           {
             "url": "https://github.com/typst/typst/releases/download/v0.12.0/typst-x86_64-pc-windows-msvc.zip",
-            "sha256": "07dceb7666b8418d5f7a0b7ebacdf0ca4a4372c0588926374e60976d55b415ff",
+            "sha256": "",
             "archive": "zip",
-            "extract": [
-              {
-                "from": "typst.exe",
-                "to": "typst.exe"
-              }
-            ]
+            "extract": [{ "from": "typst.exe", "to": "typst.exe" }]
           }
         ],
         "macos-x86_64": [
           {
             "url": "https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-x86_64-macOS.zip",
-            "sha256": "04144dd3cca1b1b843b4024af2f617c918ec2ff5bff5234e3b0195858ef71549",
+            "sha256": "",
             "archive": "zip",
-            "extract": [
-              {
-                "from": "bin/pandoc",
-                "to": "pandoc"
-              }
-            ]
+            "extract": [{ "from": "bin/pandoc", "to": "pandoc" }]
           },
           {
             "url": "https://github.com/typst/typst/releases/download/v0.12.0/typst-x86_64-apple-darwin.tar.xz",
-            "sha256": "cba1b1e43b992603da9cc7777ac1c8af2c413f381453169a22c57d9a9aa02efb",
+            "sha256": "",
             "archive": "tar.xz",
-            "extract": [
-              {
-                "from": "typst",
-                "to": "typst"
-              }
-            ]
+            "extract": [{ "from": "typst", "to": "typst" }]
           }
         ],
         "macos-aarch64": [
           {
             "url": "https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-arm64-macOS.zip",
-            "sha256": "08d571a155d49b6d7308394ac90c609e35982f19e0f65844d42d38f9927100a7",
+            "sha256": "",
             "archive": "zip",
-            "extract": [
-              {
-                "from": "bin/pandoc",
-                "to": "pandoc"
-              }
-            ]
+            "extract": [{ "from": "bin/pandoc", "to": "pandoc" }]
           },
           {
             "url": "https://github.com/typst/typst/releases/download/v0.12.0/typst-aarch64-apple-darwin.tar.xz",
-            "sha256": "0e7e7b370b240dab104654bad1ceffdbbcb17b1c98ee8b7778360ddad479fb5d",
+            "sha256": "",
             "archive": "tar.xz",
-            "extract": [
-              {
-                "from": "typst",
-                "to": "typst"
-              }
-            ]
+            "extract": [{ "from": "typst", "to": "typst" }]
           }
         ],
         "linux-x86_64": [
           {
             "url": "https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-linux-amd64.tar.gz",
-            "sha256": "a46b448ad9e7e5bd898a0606a2a67acbf4bc7714b24dc68931e9a47d7b807015",
+            "sha256": "",
             "archive": "tar.gz",
-            "extract": [
-              {
-                "from": "bin/pandoc",
-                "to": "pandoc"
-              }
-            ]
+            "extract": [{ "from": "bin/pandoc", "to": "pandoc" }]
           },
           {
             "url": "https://github.com/typst/typst/releases/download/v0.12.0/typst-x86_64-unknown-linux-musl.tar.xz",
-            "sha256": "605130a770ebd59a4a579673079cb913a13e75985231657a71d6239a57539ec3",
+            "sha256": "",
             "archive": "tar.xz",
-            "extract": [
-              {
-                "from": "typst",
-                "to": "typst"
-              }
-            ]
+            "extract": [{ "from": "typst", "to": "typst" }]
           }
         ]
       }
     },
     {
       "id": "imagemagick",
-      "name": "ImageMagick Advanced Raster Engine",
-      "shortName": "Pro Raster",
+      "name": "ImageMagick Pro Raster Engine",
+      "shortName": "Pro Raster & RAW",
       "category": "images",
       "version": "7.1.1",
       "license": "ImageMagick License",
       "approxDownloadMb": 35,
       "approxInstalledMb": 90,
-      "description": "Advanced raster pipeline for TIFF, RAW, EPS, animated GIF output and multi-resolution ICO files.",
-      "unlocks": [
-        "TIFF",
-        "RAW",
-        "EPS",
-        "GIF",
-        "ICO+"
-      ],
-      "bins": [
-        "magick"
-      ],
+      "description": "High-bit-depth studio pipeline for camera RAW, print TIFF/EPS, Photoshop PSD, HDR/EXR, HEIC, and JXL.",
+      "unlocks": ["TIFF", "PSD", "EPS", "RAW", "HDR", "EXR", "DDS", "HEIC", "JXL", "GIF", "ICO+"],
+      "bins": ["magick"],
       "platforms": {
         "windows-x86_64": [
           {
             "url": "https://imagemagick.org/archive/binaries/ImageMagick-7.1.1-41-portable-Q16-x64.zip",
             "sha256": "",
             "archive": "zip",
-            "extractAll": true,
-            "notes": "imagemagick.org rotates old builds; mirror this archive in your own release for long-term stability."
+            "extractAll": true
           }
         ],
         "linux-x86_64": [
@@ -266,13 +168,7 @@
             "url": "https://imagemagick.org/archive/binaries/magick",
             "sha256": "",
             "archive": "raw",
-            "extract": [
-              {
-                "from": "magick",
-                "to": "magick"
-              }
-            ],
-            "notes": "Official AppImage, launched with APPIMAGE_EXTRACT_AND_RUN=1 (no FUSE needed)."
+            "extract": [{ "from": "magick", "to": "magick" }]
           }
         ]
       }

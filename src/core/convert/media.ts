@@ -328,11 +328,15 @@ const WASM_ARGS: Partial<Record<FormatId, string[]>> = {
   mp4: ['-c:v', 'libx264', '-preset', 'ultrafast', '-crf', '25', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-movflags', '+faststart'],
   mov: ['-c:v', 'libx264', '-preset', 'ultrafast', '-crf', '25', '-pix_fmt', 'yuv420p', '-c:a', 'aac'],
   mkv: ['-c:v', 'libx264', '-preset', 'ultrafast', '-crf', '25', '-c:a', 'aac'],
+  avi: ['-c:v', 'mpeg4', '-q:v', '5', '-c:a', 'libmp3lame'],
   webm: ['-c:v', 'libvpx', '-b:v', '1M', '-c:a', 'libvorbis'],
   mp3: ['-vn', '-c:a', 'libmp3lame', '-q:a', '2'],
   wav: ['-vn', '-c:a', 'pcm_s16le'],
   flac: ['-vn', '-c:a', 'flac'],
   ogg: ['-vn', '-c:a', 'libvorbis', '-q:a', '4'],
+  aac: ['-vn', '-c:a', 'aac', '-b:a', '192k'],
+  m4a: ['-vn', '-c:a', 'aac', '-b:a', '192k'],
+  opus: ['-vn', '-c:a', 'libopus', '-b:a', '128k'],
   gif: ['-vf', 'fps=10,scale=360:-1:flags=lanczos', '-loop', '0'],
 };
 
@@ -362,7 +366,11 @@ function pickRecorderMime(to: FormatId): string | null {
     mp4: ['video/mp4;codecs=avc1,mp4a.40.2', 'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm'],
     mov: ['video/mp4', 'video/webm'],
     mkv: ['video/webm;codecs=vp9,opus', 'video/webm'],
+    avi: ['video/webm', 'video/mp4'],
     ogg: ['audio/ogg;codecs=opus', 'audio/webm;codecs=opus', 'audio/webm'],
+    opus: ['audio/ogg;codecs=opus', 'audio/webm;codecs=opus', 'audio/webm'],
+    aac: ['audio/mp4', 'audio/webm;codecs=opus', 'audio/webm'],
+    m4a: ['audio/mp4', 'audio/webm;codecs=opus', 'audio/webm'],
     mp3: ['audio/mp4', 'audio/webm;codecs=opus', 'audio/webm'],
   };
   for (const m of candidates[to] ?? []) {

@@ -20,10 +20,11 @@ interface Props {
 }
 
 const CATEGORY_TARGETS: Record<Category, FormatId[]> = {
-  image: ['png', 'jpg', 'webp', 'bmp', 'ico', 'svg', 'gif', 'tiff'],
-  data: ['json', 'csv', 'tsv', 'yaml', 'txt'],
-  media: ['mp4', 'mkv', 'mov', 'webm', 'mp3', 'wav', 'flac', 'ogg', 'gif'],
-  document: ['pdf', 'docx', 'epub', 'html', 'md', 'txt'],
+  image: ['png', 'jpg', 'webp', 'avif', 'bmp', 'ico', 'gif', 'svg', 'tga', 'ppm', 'pdf', 'tiff', 'psd', 'eps', 'hdr', 'exr', 'dds', 'jxl'],
+  media: ['mp4', 'webm', 'mkv', 'mov', 'avi', 'flv', 'wmv', 'mpg', '3gp', 'mp3', 'wav', 'flac', 'ogg', 'aac', 'm4a', 'opus', 'wma', 'aiff', 'ac3', 'gif'],
+  document: ['pdf', 'md', 'html', 'txt', 'rtf', 'docx', 'epub', 'odt', 'tex', 'rst', 'org', 'adoc'],
+  data: ['json', 'csv', 'tsv', 'yaml', 'xml', 'toml', 'ini', 'env', 'sql', 'txt'],
+  archive: ['zip', 'tar', 'tgz', 'gz'],
 };
 
 function Toggle({ checked, onChange, label, hint }: { checked: boolean; onChange: (v: boolean) => void; label: string; hint?: string }) {
@@ -100,7 +101,7 @@ export function PreferencesModal({ open, onClose, tab, onTab, prefs, update, des
 
           <div className="py-3">
             <div className="flex items-center justify-between">
-              <span className="text-sm font-bold text-chalk">JPG / WEBP quality</span>
+              <span className="text-sm font-bold text-chalk">JPG / WEBP / AVIF quality</span>
               <span className="font-mono text-xs text-chalk">{prefs.quality}%</span>
             </div>
             <input

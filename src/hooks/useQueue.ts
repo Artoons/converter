@@ -3,6 +3,7 @@ import { detectFormat } from '../core/detect';
 import { FORMATS, type FormatId } from '../core/formats';
 import {
   isBrowserEngine,
+  isWebCapable,
   nativeArgs,
   outputFileName,
   resolveRoute,
@@ -86,12 +87,14 @@ export function useQueue(opts: Options) {
   }, [opts.prefs.defaultTargets]);
 
   const addEntries = useCallback((entries: Entry[]) => {
-    const { prefs } = optsRef.current;
+    const { prefs, desktop } = optsRef.current;
     const created = entries.map<QueueItem>((e) => {
       const det = detectFormat(e.head, e.name);
-      const targets = det.format ? targetsFor(det.format) : [];
+      const allTargets = det.format ? targetsFor(det.format) : [];
+      const webTargets = det.format ? allTargets.filter((t) => isWebCapable(det.format!, t)) : [];
+      const candidates = !desktop && webTargets.length > 0 ? webTargets : allTargets;
       const preferred = det.format ? prefs.defaultTargets[FORMATS[det.format].category] : '';
-      const target = preferred && targets.includes(preferred) ? preferred : targets[0] ?? null;
+      const target = preferred && candidates.includes(preferred) ? preferred : candidates[0] ?? allTargets[0] ?? null;
       return {
         id: uid(),
         name: e.name,

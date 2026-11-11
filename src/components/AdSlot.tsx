@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { Monitor } from 'lucide-react';
 import { adsConfigured, config, isDesktopApp } from '../utils/env';
 
 let adsensePromise: Promise<void> | null = null;
@@ -22,12 +21,14 @@ function loadAdSense(client: string): Promise<void> {
   return adsensePromise;
 }
 
+/**
+ * Subtle, sincere fallback shown inside the ad rail when an adblocker is active.
+ */
 function HouseCard() {
   return (
-    <div className="flex h-full min-h-[280px] flex-col items-center justify-center gap-3 rounded-lg border border-dashed border-chalk/25 p-4 text-center">
-      <Monitor size={24} className="text-sketch" />
-      <p className="text-xs leading-relaxed text-sketch">
-        Ad space supports free web hosting — or download the free Desktop App for an ad-free experience.
+    <div className="flex h-full min-h-[280px] flex-col items-center justify-center px-4 py-6 text-center">
+      <p className="text-[11px] leading-relaxed text-sketch/80">
+        Quiet sidebar ads help fund this project and keep it 100% free. There are never any pop-ups, redirects, or intrusive banners here — if you’d like to support the site, please consider whitelisting it in your adblocker.
       </p>
     </div>
   );
